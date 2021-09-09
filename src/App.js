@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 //Importing Components
 import Form from "./components/Form";
@@ -10,6 +10,11 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+
+  //USE EFFECT
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status])
   // Functions
   const filterHandler = () => {
     switch(status){
