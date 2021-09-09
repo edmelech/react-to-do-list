@@ -28,7 +28,16 @@ function App() {
         setFilteredTodos(todos);
         break;
     }
-  }
+  };
+  //save to local
+  const saveLocalTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  };
+
   return (
     <div className="App">
       <header>
@@ -41,7 +50,11 @@ function App() {
         setInputText={setInputText} 
         setStatus={setStatus}
       />
-      <TodoList setTodos={setTodos} todos={todos} />
+      <TodoList 
+        filteredTodos={filteredTodos}
+        setTodos={setTodos} 
+        todos={todos} 
+      />
     </div>
   );
 }
