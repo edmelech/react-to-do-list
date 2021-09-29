@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     filterHandler();
     saveLocalTodos();
-  }, [todos, status]);
+  }, [todos, status, filterHandler, saveLocalTodos]);
 
   // Functions
   const filterHandler = () => {
