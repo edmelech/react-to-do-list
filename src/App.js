@@ -11,17 +11,6 @@ function App() {
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
 
-  //RUN ONCE when the app starts
-  useEffect(() => {
-    getLocalTodos();
-  }, []);
-
-  //USE EFFECT
-  useEffect(() => {
-    filterHandler();
-    saveLocalTodos();
-  }, [todos, status, filterHandler, saveLocalTodos]);
-
   // Functions
   const filterHandler = () => {
     switch(status){
@@ -48,6 +37,17 @@ function App() {
       setTodos(todoLocal);
     }
   };
+
+  //RUN ONCE when the app starts
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
+
+  //USE EFFECT
+  useEffect(() => {
+    filterHandler();
+    saveLocalTodos();
+  }, [todos, status, filterHandler, saveLocalTodos]);
 
   return (
     <div className="App">
